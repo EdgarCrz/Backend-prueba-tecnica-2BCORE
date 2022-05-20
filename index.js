@@ -10,10 +10,20 @@ const app = express();
 app.use(cors());
 
 // Coneccion con la base de datos
-// dbConnection();
+dbConnection();
 
 
-app.use("/api/inicio", require("./routes/inicial.routes"));
+app.use(express.static("public"));
+
+app.use(express.json());
+
+app.use("/api/registro", require("./routes/registro.routes"));
+app.use("/api/inicio", require("./routes/inicio.routes"));
+
+
+// app.get('*', (req, res) =>{
+//   res.sendFile(path.resolve(__dirname, 'public/index.html'))
+// })
 
 const puerto = process.env.PORT
 app.listen(process.env.PORT, () => {

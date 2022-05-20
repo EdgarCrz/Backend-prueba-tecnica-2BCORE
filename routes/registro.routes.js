@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const {inicio} = require("../controllers/inicial.controllers");
+const {registro} = require("../controllers/registro.controllers");
 
 
 const router = Router();
@@ -7,7 +7,7 @@ const router = Router();
 
 // CREAR RUTAS
 
-router.get("/", inicio);
+router.post("/", registro);
 
 
 module.exports = router;
