@@ -1,7 +1,7 @@
 const { response} = require("express");
 const bcrypt = require("bcryptjs/dist/bcrypt");
-
 const Usuario = require("../models/usuario.model");
+const { generarJWT } = require('../helpers/jwt')
 
 
 
@@ -33,11 +33,13 @@ const registro = async (req, resp = response) => {
 
     await usuario.save();
 
+    const token = await generarJWT(email);
+
 
     resp.json({
       ok:true,
-      email,
-      password
+      msg: "Bienvenido",
+      token
     })
   } catch (error) {
     console.log(error);
