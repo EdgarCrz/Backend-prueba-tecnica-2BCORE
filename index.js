@@ -21,9 +21,9 @@ app.use("/api/registro", require("./routes/registro.routes"));
 app.use("/api/inicio", require("./routes/inicio.routes"));
 
 
-// app.get('*', (req, res) =>{
-//   res.sendFile(path.resolve(__dirname, 'public/index.html'))
-// })
+app.get('*', (req, res) =>{
+  res.sendFile(path.resolve(__dirname, 'public/index.html'))
+})
 
 const puerto = process.env.PORT
 app.listen(process.env.PORT, () => {
